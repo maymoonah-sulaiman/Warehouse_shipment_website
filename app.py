@@ -12,14 +12,14 @@ def create_app(test_config=None):
 
     @app.route('/')
     def get_greeting():
-        greeting = "Hello first app good"
+        greeting = "Hello first app"
         return greeting
 
     @app.route('/items')
     def get_all_items():
         items = Item.query.all()
-        if len(items) == 0:
-            abort(404)
+        #if len(items) == 0:
+            #abort(404)
 
         return jsonify({
             'success': True,
