@@ -25,12 +25,12 @@ def setup_db(app, database_path=database_path):
 #Item model, it has item id, name and current availability in the warehouse.
 
 class Item(db.Model):
-    __tablename__ = 'Item'
+    __tablename__ = 'item'
 
     id = Column(db.Integer, primary_key=True)
     name = Column(db.String(120))
     availability = db.Column(db.Boolean, default=False)
-    shipment_items = db.relationship('Shipment_items', backref=db.backref('Item', lazy=True))
+    shipment_items = db.relationship('Shipment_items', backref=db.backref('item', lazy=True))
 
     def __init__(self, name, availability):
         self.name = name
@@ -56,13 +56,13 @@ class Item(db.Model):
 
 
 class Shipment(db.Model):
-    __tablename__ = 'Shipment'
+    __tablename__ = 'shipment'
 
     id = Column(db.Integer, primary_key=True)
     address = Column(db.String(120))
     phone = Column(db.String(120))
     email = Column(db.String(120))
-    shipment_items = db.relationship('Shipment_items', backref=db.backref('Shipment', lazy=True))
+    shipment_items = db.relationship('Shipment_items', backref=db.backref('shipment', lazy=True))
 
     def __init__(self, address, phone, email):
         self.address = address
@@ -90,10 +90,10 @@ class Shipment(db.Model):
 
 
 class Shipment_items(db.Model):
-    __tablename__ = 'Shipment_items'
+    __tablename__ = 'shipment_items'
 
-    shipment_id = db.Column(db.Integer, db.ForeignKey('Shipment.id'), primary_key=True)
-    item_id = db.Column(db.Integer, db.ForeignKey('Item.id'), primary_key=True)
+    shipment_id = db.Column(db.Integer, db.ForeignKey('shipment.id'), primary_key=True)
+    item_id = db.Column(db.Integer, db.ForeignKey('item.id'), primary_key=True)
     quantity = Column(db.Integer)
 
     def __init__(self, shipment_id, item_id, quantity):
