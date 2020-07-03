@@ -28,14 +28,14 @@ def create_app(test_config=None):
 
     @app.route('/items', methods=['POST'])
     def create_new_item():
-        request_data = request.get_json()
+        #request_data = request.get_json()
 
         #item = Item(name=request_data.get('name'), availability=request_data.get('availability'))
         #item.insert()
 
         return jsonify({
             'success': True,
-            'item': request_data.get('name')
+            'item': 'request_data.get('name')'
         }), 200
 
     @app.route('/items/<int:item_id>', methods=['PATCH'])
