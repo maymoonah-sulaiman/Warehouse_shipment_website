@@ -35,7 +35,7 @@ def create_app(test_config=None):
 
         return jsonify({
             'success': True,
-            'item': 'request_data.get('name')'
+            'item': 'request_data.get(name)'
         }), 200
 
     @app.route('/items/<int:item_id>', methods=['PATCH'])
