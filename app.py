@@ -1,6 +1,6 @@
 import os
 from flask import Flask, jsonify, abort, request
-from models import setup_db, Item, Shipment, Shipment_items
+from models import setup_db, Item, Shipment, Shipment_items, db
 from flask_cors import CORS
 
 
@@ -40,13 +40,15 @@ def create_app(test_config=None):
         request_data = request.get_json()
 
         try:
+            if(request_data.get('name') is None or request_data.get('availability') is None):
+                abort(422)
             item = Item(name=request_data.get('name'), availability=request_data.get('availability'))
             item.insert()
 
             return jsonify({
                 'success': True,
                 'item': item.item_id
-            }), 200
+            })
         except:
             abort(422)    
 
@@ -73,17 +75,18 @@ def create_app(test_config=None):
 
         all_shipments = []
         for shipment in shipments:
-            items = Shipment_items.query.filter_by(shipment_id=shipment.id).join(Item).all()
-            shipment_items = []
-            for item in items:
-                shipment_items.append({
-                    #"item": item.name,
-                    "quantity": item.quantity})
-            #all_shipments.append(shipment.format(items))
+            all_shipments.append(shipment.format())
         
+        items = Shipment_items.query.join(Item).filter(Shipment_items.shipment_id == shipments[0].shipment_id).all()
+        shipment_items = []
+        for item in items:
+            shipment_items.append({
+            #"item": item.name,
+            "quantity": item.quantity})
+            #all_shipments.append(shipment.format(items))
         return jsonify({
             'success': True,
-            'shipments': items[0].format()
+            'shipments': all_shipments
         })
 
 
@@ -92,6 +95,9 @@ def create_app(test_config=None):
         request_data = request.get_json()
 
         try:
+            if(request_data.get('address') is None or request_data.get('phone') is None or request_data.get('email') is None or request_data.get('items') is None):
+                abort(422)
+
             shipment = Shipment(address=request_data.get('address'), phone=request_data.get('phone'), email=request_data.get('email'))
             shipment.insert()
 
@@ -104,7 +110,7 @@ def create_app(test_config=None):
             return jsonify({
                 'success': True,
                 'shipment': shipment.format()
-                }), 200
+            })
 
         except:
             abort(422)
@@ -132,7 +138,7 @@ def create_app(test_config=None):
     def delete_a_shipment(shipment_id):
         shipment = Shipment.query.filter_by(shipment_id=shipment_id).one_or_none()
         if shipment is None:
-            abort(404)
+            abort(422)
         shipment_items = Shipment_items.query.filter_by(shipment_id=shipment.shipment_id).all()
         for item in shipment_items:
             item.delete()
