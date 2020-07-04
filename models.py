@@ -5,7 +5,8 @@ import json
 
 
 #database_path = os.environ.get('DATABASE_URL', "postgresql://postgres:DGJ#%&@localhost:5432/website")
-database_path = "postgresql://postgres:DGJ#%&@localhost:5432/website"
+database_path = os.environ['DATABASE_URL']
+#"postgresql://postgres:DGJ#%&@localhost:5432/website"
 
 db = SQLAlchemy()
 
