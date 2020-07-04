@@ -2,6 +2,7 @@ import os
 from flask import Flask, jsonify, abort, request
 from models import setup_db, Item, Shipment, Shipment_items, db
 from flask_cors import CORS
+from auth import AuthError, requires_auth
 
 
 def create_app(test_config=None):
@@ -22,7 +23,8 @@ def create_app(test_config=None):
         return greeting
 
     @app.route('/items')
-    def get_all_items():
+    @requires_auth('get:items')
+    def get_all_items(payload):
         items = Item.query.all()
         if len(items) == 0:
             abort(404)
@@ -36,7 +38,8 @@ def create_app(test_config=None):
         })
 
     @app.route('/items', methods=['POST'])
-    def create_new_item():
+    @requires_auth('post:items')
+    def create_new_item(payload):
         request_data = request.get_json()
 
         try:
@@ -53,7 +56,8 @@ def create_app(test_config=None):
             abort(422)    
 
     @app.route('/items/<int:item_id>', methods=['PATCH'])
-    def edit_item_availability(item_id):
+    @requires_auth('patch:items')
+    def edit_item_availability(payload, item_id):
         request_data = request.get_json()
         item = Item.query.filter_by(item_id=item_id).one_or_none()
         if item is None:
@@ -68,7 +72,8 @@ def create_app(test_config=None):
         })
 
     @app.route('/shipments')
-    def get_all_shipments():
+    @requires_auth('get:shipments')
+    def get_all_shipments(payload):
         shipments = Shipment.query.all()
         if len(shipments) == 0:
             abort(404)
@@ -91,7 +96,8 @@ def create_app(test_config=None):
 
 
     @app.route('/shipments', methods=['POST'])
-    def create_new_shipment():
+    @requires_auth('post:shipments')
+    def create_new_shipment(payload):
         request_data = request.get_json()
 
         try:
@@ -135,7 +141,8 @@ def create_app(test_config=None):
         #}), 200    
 
     @app.route('/shipments/<int:shipment_id>', methods=['DELETE'])
-    def delete_a_shipment(shipment_id):
+    @requires_auth('delete:shipments')
+    def delete_a_shipment(payload, shipment_id):
         shipment = Shipment.query.filter_by(shipment_id=shipment_id).one_or_none()
         if shipment is None:
             abort(422)
@@ -173,6 +180,14 @@ def create_app(test_config=None):
             "error": 400,
             "message": "bad request"
         }), 400
+
+    @app.errorhandler(AuthError)
+    def authorization_error(error):
+        return jsonify({
+            "success": False, 
+            "error": error.status_code,
+            "message": error.error['description']
+        }), error.status_code
 
     return app
 
