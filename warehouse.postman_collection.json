@@ -1,0 +1,452 @@
+{
+	"info": {
+		"_postman_id": "17ff76e3-016d-4abc-9298-b650e246f33b",
+		"name": "warehouse",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Manager",
+			"item": [
+				{
+					"name": "/items",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IkJxWUJhckpwQW5jQUUyWFA1cHFxQyJ9.eyJpc3MiOiJodHRwczovL2NvZmZlZS1zaG9wLWFwaS5hdXRoMC5jb20vIiwic3ViIjoiYXV0aDB8NWYwMGZmYjNhZWRiMzcwMDEzN2M1NWYyIiwiYXVkIjoid2FyZWhvdXNlX3NoaXBtZW50X3dlYnNpdGUiLCJpYXQiOjE1OTM5MDM3ODksImV4cCI6MTU5MzkxMDk4OSwiYXpwIjoiOTNhNnRuYnRKMVhaaTRUdGJZNWR0WUZaalh5UUxiTlciLCJzY29wZSI6IiIsInBlcm1pc3Npb25zIjpbImRlbGV0ZTpzaGlwbWVudHMiLCJnZXQ6aXRlbXMiLCJnZXQ6c2hpcG1lbnRzIiwicGF0Y2g6aXRlbXMiLCJwb3N0Oml0ZW1zIiwicG9zdDpzaGlwbWVudHMiXX0.X2NyUM7L-LVnyz--WI-R_Mx76JqutBCdPfHFFfAoTFD1aA8s4c0ORwzFd348Xr_1r16b4Ig0keaOSuJIFKgthooLwx-nY58J5pY4otTqd39cRAx3TIcZ_UcQtHljeNaMMOxzfq6fCQ7mbVuU2XTpyIFDWSlcIxFe0DPugq8effxuQjhKAOkQrzvgDENgZuoLUJBEu84C7TfsO8oD91GjlndhZf-yYo-g_xDSIXhZ9KbzHPodl2epmTNgcT8GZnIAgytp5Kxc7m1Yq2oEMuhXJwGNL-F6DG-nNSHGs3PNEAxRB9_03B65gwcIfpMWMQY3RmS7eWrrhPB6sPQJwSv6oA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"chair\",\n    \"availability\": true\n}"
+						},
+						"url": {
+							"raw": "https://warehouse-shipment-capstone.herokuapp.com/items",
+							"protocol": "https",
+							"host": [
+								"warehouse-shipment-capstone",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"items"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/items",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IkJxWUJhckpwQW5jQUUyWFA1cHFxQyJ9.eyJpc3MiOiJodHRwczovL2NvZmZlZS1zaG9wLWFwaS5hdXRoMC5jb20vIiwic3ViIjoiYXV0aDB8NWYwMGZmYjNhZWRiMzcwMDEzN2M1NWYyIiwiYXVkIjoid2FyZWhvdXNlX3NoaXBtZW50X3dlYnNpdGUiLCJpYXQiOjE1OTM5MDM3ODksImV4cCI6MTU5MzkxMDk4OSwiYXpwIjoiOTNhNnRuYnRKMVhaaTRUdGJZNWR0WUZaalh5UUxiTlciLCJzY29wZSI6IiIsInBlcm1pc3Npb25zIjpbImRlbGV0ZTpzaGlwbWVudHMiLCJnZXQ6aXRlbXMiLCJnZXQ6c2hpcG1lbnRzIiwicGF0Y2g6aXRlbXMiLCJwb3N0Oml0ZW1zIiwicG9zdDpzaGlwbWVudHMiXX0.X2NyUM7L-LVnyz--WI-R_Mx76JqutBCdPfHFFfAoTFD1aA8s4c0ORwzFd348Xr_1r16b4Ig0keaOSuJIFKgthooLwx-nY58J5pY4otTqd39cRAx3TIcZ_UcQtHljeNaMMOxzfq6fCQ7mbVuU2XTpyIFDWSlcIxFe0DPugq8effxuQjhKAOkQrzvgDENgZuoLUJBEu84C7TfsO8oD91GjlndhZf-yYo-g_xDSIXhZ9KbzHPodl2epmTNgcT8GZnIAgytp5Kxc7m1Yq2oEMuhXJwGNL-F6DG-nNSHGs3PNEAxRB9_03B65gwcIfpMWMQY3RmS7eWrrhPB6sPQJwSv6oA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://warehouse-shipment-capstone.herokuapp.com/items",
+							"protocol": "https",
+							"host": [
+								"warehouse-shipment-capstone",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"items"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/items",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IkJxWUJhckpwQW5jQUUyWFA1cHFxQyJ9.eyJpc3MiOiJodHRwczovL2NvZmZlZS1zaG9wLWFwaS5hdXRoMC5jb20vIiwic3ViIjoiYXV0aDB8NWYwMGZmYjNhZWRiMzcwMDEzN2M1NWYyIiwiYXVkIjoid2FyZWhvdXNlX3NoaXBtZW50X3dlYnNpdGUiLCJpYXQiOjE1OTM5MDM3ODksImV4cCI6MTU5MzkxMDk4OSwiYXpwIjoiOTNhNnRuYnRKMVhaaTRUdGJZNWR0WUZaalh5UUxiTlciLCJzY29wZSI6IiIsInBlcm1pc3Npb25zIjpbImRlbGV0ZTpzaGlwbWVudHMiLCJnZXQ6aXRlbXMiLCJnZXQ6c2hpcG1lbnRzIiwicGF0Y2g6aXRlbXMiLCJwb3N0Oml0ZW1zIiwicG9zdDpzaGlwbWVudHMiXX0.X2NyUM7L-LVnyz--WI-R_Mx76JqutBCdPfHFFfAoTFD1aA8s4c0ORwzFd348Xr_1r16b4Ig0keaOSuJIFKgthooLwx-nY58J5pY4otTqd39cRAx3TIcZ_UcQtHljeNaMMOxzfq6fCQ7mbVuU2XTpyIFDWSlcIxFe0DPugq8effxuQjhKAOkQrzvgDENgZuoLUJBEu84C7TfsO8oD91GjlndhZf-yYo-g_xDSIXhZ9KbzHPodl2epmTNgcT8GZnIAgytp5Kxc7m1Yq2oEMuhXJwGNL-F6DG-nNSHGs3PNEAxRB9_03B65gwcIfpMWMQY3RmS7eWrrhPB6sPQJwSv6oA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"availability\": false\r\n}"
+						},
+						"url": {
+							"raw": "https://warehouse-shipment-capstone.herokuapp.com/items/2",
+							"protocol": "https",
+							"host": [
+								"warehouse-shipment-capstone",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"items",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/shipments",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IkJxWUJhckpwQW5jQUUyWFA1cHFxQyJ9.eyJpc3MiOiJodHRwczovL2NvZmZlZS1zaG9wLWFwaS5hdXRoMC5jb20vIiwic3ViIjoiYXV0aDB8NWYwMGZmYjNhZWRiMzcwMDEzN2M1NWYyIiwiYXVkIjoid2FyZWhvdXNlX3NoaXBtZW50X3dlYnNpdGUiLCJpYXQiOjE1OTM5MDM3ODksImV4cCI6MTU5MzkxMDk4OSwiYXpwIjoiOTNhNnRuYnRKMVhaaTRUdGJZNWR0WUZaalh5UUxiTlciLCJzY29wZSI6IiIsInBlcm1pc3Npb25zIjpbImRlbGV0ZTpzaGlwbWVudHMiLCJnZXQ6aXRlbXMiLCJnZXQ6c2hpcG1lbnRzIiwicGF0Y2g6aXRlbXMiLCJwb3N0Oml0ZW1zIiwicG9zdDpzaGlwbWVudHMiXX0.X2NyUM7L-LVnyz--WI-R_Mx76JqutBCdPfHFFfAoTFD1aA8s4c0ORwzFd348Xr_1r16b4Ig0keaOSuJIFKgthooLwx-nY58J5pY4otTqd39cRAx3TIcZ_UcQtHljeNaMMOxzfq6fCQ7mbVuU2XTpyIFDWSlcIxFe0DPugq8effxuQjhKAOkQrzvgDENgZuoLUJBEu84C7TfsO8oD91GjlndhZf-yYo-g_xDSIXhZ9KbzHPodl2epmTNgcT8GZnIAgytp5Kxc7m1Yq2oEMuhXJwGNL-F6DG-nNSHGs3PNEAxRB9_03B65gwcIfpMWMQY3RmS7eWrrhPB6sPQJwSv6oA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://warehouse-shipment-capstone.herokuapp.com/shipments",
+							"protocol": "https",
+							"host": [
+								"warehouse-shipment-capstone",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"shipments"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/shipments",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IkJxWUJhckpwQW5jQUUyWFA1cHFxQyJ9.eyJpc3MiOiJodHRwczovL2NvZmZlZS1zaG9wLWFwaS5hdXRoMC5jb20vIiwic3ViIjoiYXV0aDB8NWYwMGZmYjNhZWRiMzcwMDEzN2M1NWYyIiwiYXVkIjoid2FyZWhvdXNlX3NoaXBtZW50X3dlYnNpdGUiLCJpYXQiOjE1OTM5MDM3ODksImV4cCI6MTU5MzkxMDk4OSwiYXpwIjoiOTNhNnRuYnRKMVhaaTRUdGJZNWR0WUZaalh5UUxiTlciLCJzY29wZSI6IiIsInBlcm1pc3Npb25zIjpbImRlbGV0ZTpzaGlwbWVudHMiLCJnZXQ6aXRlbXMiLCJnZXQ6c2hpcG1lbnRzIiwicGF0Y2g6aXRlbXMiLCJwb3N0Oml0ZW1zIiwicG9zdDpzaGlwbWVudHMiXX0.X2NyUM7L-LVnyz--WI-R_Mx76JqutBCdPfHFFfAoTFD1aA8s4c0ORwzFd348Xr_1r16b4Ig0keaOSuJIFKgthooLwx-nY58J5pY4otTqd39cRAx3TIcZ_UcQtHljeNaMMOxzfq6fCQ7mbVuU2XTpyIFDWSlcIxFe0DPugq8effxuQjhKAOkQrzvgDENgZuoLUJBEu84C7TfsO8oD91GjlndhZf-yYo-g_xDSIXhZ9KbzHPodl2epmTNgcT8GZnIAgytp5Kxc7m1Yq2oEMuhXJwGNL-F6DG-nNSHGs3PNEAxRB9_03B65gwcIfpMWMQY3RmS7eWrrhPB6sPQJwSv6oA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"address\": \"street 12\",\r\n    \"phone\": \"2323456789\",\r\n    \"email\": \"12@gmail.com\",\r\n    \"items\": [{\"item_id\": 1, \"quantity\": 4}, {\"item_id\": 2, \"quantity\": 3}]\r\n}"
+						},
+						"url": {
+							"raw": "https://warehouse-shipment-capstone.herokuapp.com/shipments",
+							"protocol": "https",
+							"host": [
+								"warehouse-shipment-capstone",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"shipments"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/shipments",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IkJxWUJhckpwQW5jQUUyWFA1cHFxQyJ9.eyJpc3MiOiJodHRwczovL2NvZmZlZS1zaG9wLWFwaS5hdXRoMC5jb20vIiwic3ViIjoiYXV0aDB8NWYwMGZmYjNhZWRiMzcwMDEzN2M1NWYyIiwiYXVkIjoid2FyZWhvdXNlX3NoaXBtZW50X3dlYnNpdGUiLCJpYXQiOjE1OTM5MDM3ODksImV4cCI6MTU5MzkxMDk4OSwiYXpwIjoiOTNhNnRuYnRKMVhaaTRUdGJZNWR0WUZaalh5UUxiTlciLCJzY29wZSI6IiIsInBlcm1pc3Npb25zIjpbImRlbGV0ZTpzaGlwbWVudHMiLCJnZXQ6aXRlbXMiLCJnZXQ6c2hpcG1lbnRzIiwicGF0Y2g6aXRlbXMiLCJwb3N0Oml0ZW1zIiwicG9zdDpzaGlwbWVudHMiXX0.X2NyUM7L-LVnyz--WI-R_Mx76JqutBCdPfHFFfAoTFD1aA8s4c0ORwzFd348Xr_1r16b4Ig0keaOSuJIFKgthooLwx-nY58J5pY4otTqd39cRAx3TIcZ_UcQtHljeNaMMOxzfq6fCQ7mbVuU2XTpyIFDWSlcIxFe0DPugq8effxuQjhKAOkQrzvgDENgZuoLUJBEu84C7TfsO8oD91GjlndhZf-yYo-g_xDSIXhZ9KbzHPodl2epmTNgcT8GZnIAgytp5Kxc7m1Yq2oEMuhXJwGNL-F6DG-nNSHGs3PNEAxRB9_03B65gwcIfpMWMQY3RmS7eWrrhPB6sPQJwSv6oA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://warehouse-shipment-capstone.herokuapp.com/shipments/3",
+							"protocol": "https",
+							"host": [
+								"warehouse-shipment-capstone",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"shipments",
+								"3"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Employee",
+			"item": [
+				{
+					"name": "/items",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IkJxWUJhckpwQW5jQUUyWFA1cHFxQyJ9.eyJpc3MiOiJodHRwczovL2NvZmZlZS1zaG9wLWFwaS5hdXRoMC5jb20vIiwic3ViIjoiYXV0aDB8NWYwMTAxNzk5Mjg4MmMwMDEzNWNhMDIwIiwiYXVkIjoid2FyZWhvdXNlX3NoaXBtZW50X3dlYnNpdGUiLCJpYXQiOjE1OTM5MDQxOTUsImV4cCI6MTU5MzkxMTM5NSwiYXpwIjoiOTNhNnRuYnRKMVhaaTRUdGJZNWR0WUZaalh5UUxiTlciLCJzY29wZSI6IiIsInBlcm1pc3Npb25zIjpbImdldDppdGVtcyIsImdldDpzaGlwbWVudHMiXX0.NML5uhieN8q3TM74D0Q80L9zhzrmC-PNRH9QfsWYpwrICj7szxuDnJsM1Xw7hijZlj0UmB0l12INJRccBWB3igtL-ANO86QO3YkDVnAHcBRKdgXyWR3sLc7fkULlZdggBMZmhtDjjbgTA5KFV7zrFRYjm2OldhS9rNWjwf8iFAuab4qOEVBE_nzuYALlcrjHFOoB3CZuv3xgy0EJtyuv_4YxaRrAzpafmDEVqkArf4QnkcuOWnE-wjFpA1Z0Rl20udyAGNKE0dwcTw-sfx3-bMbqDiaJEX_Uf8eZRCWJ-Fo4oMtUOv4Lb_WUe8ddDxnvlPY9f4v3GLHZTFFpxwgvrg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://warehouse-shipment-capstone.herokuapp.com/items",
+							"protocol": "https",
+							"host": [
+								"warehouse-shipment-capstone",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"items"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/shipments",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IkJxWUJhckpwQW5jQUUyWFA1cHFxQyJ9.eyJpc3MiOiJodHRwczovL2NvZmZlZS1zaG9wLWFwaS5hdXRoMC5jb20vIiwic3ViIjoiYXV0aDB8NWYwMTAxNzk5Mjg4MmMwMDEzNWNhMDIwIiwiYXVkIjoid2FyZWhvdXNlX3NoaXBtZW50X3dlYnNpdGUiLCJpYXQiOjE1OTM5MDQxOTUsImV4cCI6MTU5MzkxMTM5NSwiYXpwIjoiOTNhNnRuYnRKMVhaaTRUdGJZNWR0WUZaalh5UUxiTlciLCJzY29wZSI6IiIsInBlcm1pc3Npb25zIjpbImdldDppdGVtcyIsImdldDpzaGlwbWVudHMiXX0.NML5uhieN8q3TM74D0Q80L9zhzrmC-PNRH9QfsWYpwrICj7szxuDnJsM1Xw7hijZlj0UmB0l12INJRccBWB3igtL-ANO86QO3YkDVnAHcBRKdgXyWR3sLc7fkULlZdggBMZmhtDjjbgTA5KFV7zrFRYjm2OldhS9rNWjwf8iFAuab4qOEVBE_nzuYALlcrjHFOoB3CZuv3xgy0EJtyuv_4YxaRrAzpafmDEVqkArf4QnkcuOWnE-wjFpA1Z0Rl20udyAGNKE0dwcTw-sfx3-bMbqDiaJEX_Uf8eZRCWJ-Fo4oMtUOv4Lb_WUe8ddDxnvlPY9f4v3GLHZTFFpxwgvrg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://warehouse-shipment-capstone.herokuapp.com/shipments",
+							"protocol": "https",
+							"host": [
+								"warehouse-shipment-capstone",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"shipments"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/items",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IkJxWUJhckpwQW5jQUUyWFA1cHFxQyJ9.eyJpc3MiOiJodHRwczovL2NvZmZlZS1zaG9wLWFwaS5hdXRoMC5jb20vIiwic3ViIjoiYXV0aDB8NWYwMTAxNzk5Mjg4MmMwMDEzNWNhMDIwIiwiYXVkIjoid2FyZWhvdXNlX3NoaXBtZW50X3dlYnNpdGUiLCJpYXQiOjE1OTM5MDQxOTUsImV4cCI6MTU5MzkxMTM5NSwiYXpwIjoiOTNhNnRuYnRKMVhaaTRUdGJZNWR0WUZaalh5UUxiTlciLCJzY29wZSI6IiIsInBlcm1pc3Npb25zIjpbImdldDppdGVtcyIsImdldDpzaGlwbWVudHMiXX0.NML5uhieN8q3TM74D0Q80L9zhzrmC-PNRH9QfsWYpwrICj7szxuDnJsM1Xw7hijZlj0UmB0l12INJRccBWB3igtL-ANO86QO3YkDVnAHcBRKdgXyWR3sLc7fkULlZdggBMZmhtDjjbgTA5KFV7zrFRYjm2OldhS9rNWjwf8iFAuab4qOEVBE_nzuYALlcrjHFOoB3CZuv3xgy0EJtyuv_4YxaRrAzpafmDEVqkArf4QnkcuOWnE-wjFpA1Z0Rl20udyAGNKE0dwcTw-sfx3-bMbqDiaJEX_Uf8eZRCWJ-Fo4oMtUOv4Lb_WUe8ddDxnvlPY9f4v3GLHZTFFpxwgvrg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"table\",\n    \"availability\": true\n}"
+						},
+						"url": {
+							"raw": "https://warehouse-shipment-capstone.herokuapp.com/items",
+							"protocol": "https",
+							"host": [
+								"warehouse-shipment-capstone",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"items"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/items",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IkJxWUJhckpwQW5jQUUyWFA1cHFxQyJ9.eyJpc3MiOiJodHRwczovL2NvZmZlZS1zaG9wLWFwaS5hdXRoMC5jb20vIiwic3ViIjoiYXV0aDB8NWYwMTAxNzk5Mjg4MmMwMDEzNWNhMDIwIiwiYXVkIjoid2FyZWhvdXNlX3NoaXBtZW50X3dlYnNpdGUiLCJpYXQiOjE1OTM5MDQxOTUsImV4cCI6MTU5MzkxMTM5NSwiYXpwIjoiOTNhNnRuYnRKMVhaaTRUdGJZNWR0WUZaalh5UUxiTlciLCJzY29wZSI6IiIsInBlcm1pc3Npb25zIjpbImdldDppdGVtcyIsImdldDpzaGlwbWVudHMiXX0.NML5uhieN8q3TM74D0Q80L9zhzrmC-PNRH9QfsWYpwrICj7szxuDnJsM1Xw7hijZlj0UmB0l12INJRccBWB3igtL-ANO86QO3YkDVnAHcBRKdgXyWR3sLc7fkULlZdggBMZmhtDjjbgTA5KFV7zrFRYjm2OldhS9rNWjwf8iFAuab4qOEVBE_nzuYALlcrjHFOoB3CZuv3xgy0EJtyuv_4YxaRrAzpafmDEVqkArf4QnkcuOWnE-wjFpA1Z0Rl20udyAGNKE0dwcTw-sfx3-bMbqDiaJEX_Uf8eZRCWJ-Fo4oMtUOv4Lb_WUe8ddDxnvlPY9f4v3GLHZTFFpxwgvrg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"availability\": false\r\n}"
+						},
+						"url": {
+							"raw": "https://warehouse-shipment-capstone.herokuapp.com/items/1",
+							"protocol": "https",
+							"host": [
+								"warehouse-shipment-capstone",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"items",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/shipments",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IkJxWUJhckpwQW5jQUUyWFA1cHFxQyJ9.eyJpc3MiOiJodHRwczovL2NvZmZlZS1zaG9wLWFwaS5hdXRoMC5jb20vIiwic3ViIjoiYXV0aDB8NWYwMTAxNzk5Mjg4MmMwMDEzNWNhMDIwIiwiYXVkIjoid2FyZWhvdXNlX3NoaXBtZW50X3dlYnNpdGUiLCJpYXQiOjE1OTM5MDQxOTUsImV4cCI6MTU5MzkxMTM5NSwiYXpwIjoiOTNhNnRuYnRKMVhaaTRUdGJZNWR0WUZaalh5UUxiTlciLCJzY29wZSI6IiIsInBlcm1pc3Npb25zIjpbImdldDppdGVtcyIsImdldDpzaGlwbWVudHMiXX0.NML5uhieN8q3TM74D0Q80L9zhzrmC-PNRH9QfsWYpwrICj7szxuDnJsM1Xw7hijZlj0UmB0l12INJRccBWB3igtL-ANO86QO3YkDVnAHcBRKdgXyWR3sLc7fkULlZdggBMZmhtDjjbgTA5KFV7zrFRYjm2OldhS9rNWjwf8iFAuab4qOEVBE_nzuYALlcrjHFOoB3CZuv3xgy0EJtyuv_4YxaRrAzpafmDEVqkArf4QnkcuOWnE-wjFpA1Z0Rl20udyAGNKE0dwcTw-sfx3-bMbqDiaJEX_Uf8eZRCWJ-Fo4oMtUOv4Lb_WUe8ddDxnvlPY9f4v3GLHZTFFpxwgvrg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"address\": \"street 5\",\r\n    \"phone\": \"2323456789\",\r\n    \"email\": \"12@gmail.com\",\r\n    \"items\": [{\"item_id\": 2, \"quantity\": 4}, {\"item_id\": 3, \"quantity\": 1}]\r\n}"
+						},
+						"url": {
+							"raw": "https://warehouse-shipment-capstone.herokuapp.com/shipments",
+							"protocol": "https",
+							"host": [
+								"warehouse-shipment-capstone",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"shipments"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/shipments",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IkJxWUJhckpwQW5jQUUyWFA1cHFxQyJ9.eyJpc3MiOiJodHRwczovL2NvZmZlZS1zaG9wLWFwaS5hdXRoMC5jb20vIiwic3ViIjoiYXV0aDB8NWYwMTAxNzk5Mjg4MmMwMDEzNWNhMDIwIiwiYXVkIjoid2FyZWhvdXNlX3NoaXBtZW50X3dlYnNpdGUiLCJpYXQiOjE1OTM5MDQxOTUsImV4cCI6MTU5MzkxMTM5NSwiYXpwIjoiOTNhNnRuYnRKMVhaaTRUdGJZNWR0WUZaalh5UUxiTlciLCJzY29wZSI6IiIsInBlcm1pc3Npb25zIjpbImdldDppdGVtcyIsImdldDpzaGlwbWVudHMiXX0.NML5uhieN8q3TM74D0Q80L9zhzrmC-PNRH9QfsWYpwrICj7szxuDnJsM1Xw7hijZlj0UmB0l12INJRccBWB3igtL-ANO86QO3YkDVnAHcBRKdgXyWR3sLc7fkULlZdggBMZmhtDjjbgTA5KFV7zrFRYjm2OldhS9rNWjwf8iFAuab4qOEVBE_nzuYALlcrjHFOoB3CZuv3xgy0EJtyuv_4YxaRrAzpafmDEVqkArf4QnkcuOWnE-wjFpA1Z0Rl20udyAGNKE0dwcTw-sfx3-bMbqDiaJEX_Uf8eZRCWJ-Fo4oMtUOv4Lb_WUe8ddDxnvlPY9f4v3GLHZTFFpxwgvrg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://warehouse-shipment-capstone.herokuapp.com/shipments/1",
+							"protocol": "https",
+							"host": [
+								"warehouse-shipment-capstone",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"shipments",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
