@@ -34,6 +34,7 @@ https://warehouse-shipment-capstone.herokuapp.com/
 for more conviniance a postman collection is included and it is ready to be used with the JWTs included.
 but, the JWTs are also listed below.
 There are two types of user roles:
+
 manager: eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IkJxWUJhckpwQW5jQUUyWFA1cHFxQyJ9.eyJpc3MiOiJodHRwczovL2NvZmZlZS1zaG9wLWFwaS5hdXRoMC5jb20vIiwic3ViIjoiYXV0aDB8NWYwMGZmYjNhZWRiMzcwMDEzN2M1NWYyIiwiYXVkIjoid2FyZWhvdXNlX3NoaXBtZW50X3dlYnNpdGUiLCJpYXQiOjE1OTM5MDM3ODksImV4cCI6MTU5MzkxMDk4OSwiYXpwIjoiOTNhNnRuYnRKMVhaaTRUdGJZNWR0WUZaalh5UUxiTlciLCJzY29wZSI6IiIsInBlcm1pc3Npb25zIjpbImRlbGV0ZTpzaGlwbWVudHMiLCJnZXQ6aXRlbXMiLCJnZXQ6c2hpcG1lbnRzIiwicGF0Y2g6aXRlbXMiLCJwb3N0Oml0ZW1zIiwicG9zdDpzaGlwbWVudHMiXX0.X2NyUM7L-LVnyz--WI-R_Mx76JqutBCdPfHFFfAoTFD1aA8s4c0ORwzFd348Xr_1r16b4Ig0keaOSuJIFKgthooLwx-nY58J5pY4otTqd39cRAx3TIcZ_UcQtHljeNaMMOxzfq6fCQ7mbVuU2XTpyIFDWSlcIxFe0DPugq8effxuQjhKAOkQrzvgDENgZuoLUJBEu84C7TfsO8oD91GjlndhZf-yYo-g_xDSIXhZ9KbzHPodl2epmTNgcT8GZnIAgytp5Kxc7m1Yq2oEMuhXJwGNL-F6DG-nNSHGs3PNEAxRB9_03B65gwcIfpMWMQY3RmS7eWrrhPB6sPQJwSv6oA
 
 
@@ -47,6 +48,10 @@ manager:
   - get:shipments
   - post:shipments
   - delete:shipments
+
+employee:
+  - get:items
+  - get:shipments
 
 ### Endpoints:
 
