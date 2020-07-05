@@ -48,15 +48,11 @@ class WarehouseTestCase(unittest.TestCase):
             "availability": False
             }
     def tearDown(self):
-        """Executed after reach test"""
         pass
 
-    """
-    TODO
-    Write at least one test for each test for successful operation and for expected errors.
-    """
+    
 
-    #works
+
     def test_get_items(self):
         res = self.client().get('/items')
         data = json.loads(res.data)
@@ -70,14 +66,13 @@ class WarehouseTestCase(unittest.TestCase):
         #self.assertEqual(res.status_code, 404)
         #self.assertEqual(data['success'], False)
         #self.assertEqual(data['message'], 'resource not found')
-    
-   
-    
-    #def test_get_shipments(self):
-        #res = self.client().get('/shipments')
-        #data = json.loads(res.data)
-        #self.assertEqual(res.status_code, 200)
-        #self.assertEqual(data['success'], True)
+
+
+    def test_get_shipments(self):
+        res = self.client().get('/shipments')
+        data = json.loads(res.data)
+        self.assertEqual(res.status_code, 200)
+        self.assertEqual(data['success'], True)
         
     #def test_no_shipments(self):
         #res = self.client().get('/shipments')
@@ -86,13 +81,13 @@ class WarehouseTestCase(unittest.TestCase):
         #self.assertEqual(data['success'], False)
         #self.assertEqual(data['message'], 'resource not found')
 
-    #works
+
     def test_delete_shipment(self):
         res = self.client().delete('/shipments/3')
         data = json.loads(res.data)
         self.assertEqual(res.status_code, 200)
         self.assertEqual(data['success'], True)
-    #works    
+ 
     def test_shipment_not_found_to_delete(self):
         res = self.client().delete('/shipments/1000')
         data = json.loads(res.data)
@@ -100,13 +95,13 @@ class WarehouseTestCase(unittest.TestCase):
         self.assertEqual(data['success'], False)
         self.assertEqual(data['message'], 'unprocessable')
 
-    #works
+
     def test_create_item(self):
         res = self.client().post('/items', json=self.new_correct_item)
         data = json.loads(res.data)
         self.assertEqual(res.status_code, 200)
         self.assertEqual(data["success"], True)
-    #works
+
     def test_422_create_item(self):
         res = self.client().post('/items', json=self.new_incorrect_item)
         data = json.loads(res.data)
@@ -114,15 +109,15 @@ class WarehouseTestCase(unittest.TestCase):
         self.assertEqual(data["success"], False)
         self.assertEqual(data["message"], "unprocessable")
 
-   
-    #works
+
+
     def test_create_shipment(self):
         res = self.client().post('/shipments', json=self.new_correct_shipment)
         data = json.loads(res.data)
         self.assertEqual(res.status_code, 200)
         self.assertEqual(data["success"], True)
-        
-    #works
+
+
     def test_422_create_shipment(self):
         res = self.client().post('/shipments', json=self.new_incorrect_shipment)
         data = json.loads(res.data)

@@ -1,7 +1,7 @@
 import os
 from flask import Flask, jsonify, abort, request
-from models import setup_db, Item, Shipment, Shipment_items, db
 from flask_cors import CORS
+from models import setup_db, Item, Shipment, Shipment_items
 from auth import AuthError, requires_auth
 
 
@@ -19,8 +19,9 @@ def create_app(test_config=None):
 
     @app.route('/')
     def get_greeting():
-        greeting = "Hello first app"
+        greeting = "Hello! Welcome to the warehouse shipment system!"
         return greeting
+
 
     @app.route('/items')
     @requires_auth('get:items')
@@ -31,29 +32,29 @@ def create_app(test_config=None):
         all_items = []
         for item in items:
             all_items.append(item.format())
-
         return jsonify({
             'success': True,
             'items': all_items
         })
 
+
     @app.route('/items', methods=['POST'])
     @requires_auth('post:items')
     def create_new_item(payload):
         request_data = request.get_json()
-
         try:
             if(request_data.get('name') is None or request_data.get('availability') is None):
                 abort(422)
             item = Item(name=request_data.get('name'), availability=request_data.get('availability'))
             item.insert()
-
             return jsonify({
                 'success': True,
                 'item': item.item_id
             })
         except:
-            abort(422)    
+            abort(422) 
+
+
 
     @app.route('/items/<int:item_id>', methods=['PATCH'])
     @requires_auth('patch:items')
@@ -71,6 +72,8 @@ def create_app(test_config=None):
             'item': item.item_id
         })
 
+
+
     @app.route('/shipments')
     @requires_auth('get:shipments')
     def get_all_shipments(payload):
@@ -81,7 +84,7 @@ def create_app(test_config=None):
         all_shipments = []
         for shipment in shipments:
             all_shipments.append(shipment.format())
-        
+   
         items = Shipment_items.query.join(Item).filter(Shipment_items.shipment_id == shipments[0].shipment_id).all()
         shipment_items = []
         for item in items:
@@ -95,50 +98,30 @@ def create_app(test_config=None):
         })
 
 
+
     @app.route('/shipments', methods=['POST'])
     @requires_auth('post:shipments')
     def create_new_shipment(payload):
         request_data = request.get_json()
-
         try:
             if(request_data.get('address') is None or request_data.get('phone') is None or request_data.get('email') is None or request_data.get('items') is None):
                 abort(422)
 
             shipment = Shipment(address=request_data.get('address'), phone=request_data.get('phone'), email=request_data.get('email'))
             shipment.insert()
-
             items = request_data.get('items')
             for item in items:
                 shipment_item = Shipment_items(shipment_id=shipment.shipment_id, item_id=item['item_id'], quantity=item['quantity'])
                 shipment_item.insert()
             #[{'id':'1', 'quantity':'4'}, {'id':'6', 'quantity':'9'}]
-
             return jsonify({
                 'success': True,
                 'shipment': shipment.format()
             })
-
         except:
             abort(422)
 
-    #@app.route('/shipments/<int:shipment_id>', methods=['PATCH'])
-    #def edit_shipment(payload, shipment_id):
-        #request_data = request.get_json()
-        #shipment = Shipment.query.filter_by(id=shipment_id).one_or_none()
-        #if shipment is None:
-            #abort(404)
-        #if request_data.get('address'):
-            #shipment.address = request_data.get('address')
-        #if request_data.get('phone'):
-            #shipment.phone = request_data.get('phone')
-        #if request_data.get('email'):
-            #shipment.email = request_data.get('email')   
-        #shipment.update()
 
-        #return jsonify({
-            #'success': True,
-            #'item': shipment.format()
-        #}), 200    
 
     @app.route('/shipments/<int:shipment_id>', methods=['DELETE'])
     @requires_auth('delete:shipments')
@@ -150,13 +133,15 @@ def create_app(test_config=None):
         for item in shipment_items:
             item.delete()
         shipment.delete()
-    
         return jsonify({
             "success": True,
             "delete": shipment.shipment_id
         })
-    
-    
+
+
+
+
+
     @app.errorhandler(404)
     def not_found(error):
         return jsonify({

@@ -4,7 +4,7 @@ from flask_sqlalchemy import SQLAlchemy
 import json
 
 
-#database_path = os.environ.get('DATABASE_URL', "postgresql://postgres:DGJ#%&@localhost:5432/website")
+
 database_path = os.environ['DATABASE_URL']
 #"postgresql://postgres:DGJ#%&@localhost:5432/website"
 
@@ -33,17 +33,9 @@ class Item(db.Model):
     availability = db.Column(db.Boolean, default=False)
     shipment_items = db.relationship('Shipment_items', backref=db.backref('item', lazy=True))
 
-    #def __init__(self, name, availability):
-        #self.name = name
-        #self.availability = availability
-
     def insert(self):
         db.session.add(self)
         db.session.commit()
-
-    #def delete(self):
-        #db.session.delete(self)
-        #db.session.commit()      
 
     def update(self):
         db.session.commit()
@@ -65,10 +57,6 @@ class Shipment(db.Model):
     email = db.Column(db.String(120))
     shipment_items = db.relationship('Shipment_items', backref=db.backref('shipment', lazy=True))
 
-    #def __init__(self, address, phone, email):
-        #self.address = address
-        #self.phone = phone
-        #self.email = email
 
     def insert(self):
         db.session.add(self)
@@ -96,11 +84,6 @@ class Shipment_items(db.Model):
     shipment_id = db.Column(db.Integer, db.ForeignKey('shipment.shipment_id'), primary_key=True)
     item_id = db.Column(db.Integer, db.ForeignKey('item.item_id'), primary_key=True)
     quantity = db.Column(db.Integer)
-
-    #def __init__(self, shipment_id, item_id, quantity):
-        #self.shipment_id = shipment_id
-        #self.item_id = item_id
-        #self.quantity = quantity
 
     def insert(self):
         db.session.add(self)
